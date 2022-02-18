@@ -13,27 +13,27 @@ UFT (Universal File Transfer) is a CLI tool , which can  be used to upload files
 ## How To Use:
 
 ```
-user> UFT help
+user> uft help
 ```
 Get help how to use UFT.
 
 ```
-user> UFT upload (filename) (password)
+user> =uft upload (filename) (password)
 ```
 Upload a file.
 
 ```
-user> UFT download (filename) (output) 
+user> uft download (filename) (output) 
 ```
 Download a file.
 
 ```
-user> UFT delete (filename) (password) 
+user> uft delete (filename) (password) 
 ```
 Delete a file.
 
 ```
-user> UFT replace (filename) (newfile) (password)
+user> uft replace (filename) (newfile) (password)
 ```
 Replace a file.
 
