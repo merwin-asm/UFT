@@ -17,7 +17,7 @@ def reparsed_path(path):
             path_final+=each
     return path_final
 try:
-    full_path_main = os.path.abspath("main_ver_2.py")
+    full_path_main = os.path.abspath("cli_uft.py")
     full_path_main = reparsed_path(full_path_main)
     my_path.make_redirecting_bashfile("uft",full_path_main,allow_args=True,max_num_args=5)
     full_path = os.path.abspath("uft")
