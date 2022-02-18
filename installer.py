@@ -1,8 +1,8 @@
-import MYPATH
+import pyPath
 import os
 import time
 
-my_path = MYPATH.MYPATH()
+my_path = pyPath.MYPATH()
 
 def reparsed_path(path):
     path_final = ""
