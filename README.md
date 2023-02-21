@@ -16,7 +16,7 @@ UFT (Universal File Transfer) is a CLI tool , which can  be used to upload files
 ### Linux:
 
 ```
-git clone 
+git clone https://github.com/mastercodermerwin/UFT.git
 ```
 
 ```
