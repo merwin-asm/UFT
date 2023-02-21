@@ -59,7 +59,7 @@ Delete a file.
 
 ```
 user> uft replace (filename) (newfile) (password)
-```
+``` 
 Replace a file.
 
 
