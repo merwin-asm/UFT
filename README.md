@@ -1,6 +1,6 @@
 # UFT 2.0.0 
   
- - ALl features maynot be available as ~ VER 3 Is having some probs..
+ - All features maynot be available as ~ VER 3 Is having some probs..
 
 UFT (Universal File Transfer) is a CLI tool , which can  be used to upload files to a public server and any one can download it...
 
@@ -8,7 +8,7 @@ UFT (Universal File Transfer) is a CLI tool , which can  be used to upload files
 
 ## Features
 
-- Encrytion(AES and RSA).
+- Encrytion(RSA).
 - SPV(secure password varification).
 - File compression.
 - Easy to use.
