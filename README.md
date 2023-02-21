@@ -9,10 +9,15 @@ UFT (Universal File Transfer) is a CLI tool , which can  be used to upload files
 ## Features
 
 - Encrytion(RSA).
-- SPV(secure password varification).
-- File compression.
 - Easy to use.
 - Linux ONLY(INSTALLER).
+
+## Up Commings - v3
+- SPV(secure password varification) 
+- File compression 
+- E2EE
+- Relays 
+- Decentralised 
 
 ## Installation :
 
