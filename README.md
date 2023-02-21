@@ -34,7 +34,15 @@ python3 installer.py # or python installer.py
 Use without adding to path..
 
 ```
-python UFT.py
+git clone https://github.com/mastercodermerwin/UFT.git
+```
+
+```
+cd UFT
+```
+
+```
+python main.py
 ```
 
 
