@@ -3,6 +3,8 @@ import os
 
 USER = os.getlogin()
 
+os.system("pip install -r requirements.txt")
+print("\n If you got any errors here , try running : pip3 install -r requirements.txt \n\n")
 
 target_install = f"/home/{USER}/UFT"
 
