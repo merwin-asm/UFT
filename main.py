@@ -1,8 +1,14 @@
+########################################################################
+# UFT - 2 - CLIENT - CLI
+# Author : Merwin M.M
+########################################################################
+
 import socket
 import os
 import sys
 import rsa
 import time
+import requests as r
 import hashlib
 from rich import print
 from rich.table import Table
@@ -97,9 +103,17 @@ def hash_salt(password):
 
 recv_chunks = []
 send_chunks = []
+# Getting server info
+server_stat_url = "https://raw.githubusercontent.com/darkmash-org/UFT/main/status.txt"
+server_stats = r.get(server_stat_url).text
+server_stats = server_stats.replace("\n","")
+if server_stats == "DOWN":
+    print("[bold red] [-] The server is DOWN. Try later..[/bold red]")
+    quit()
 # setting connection to server
-port = 12184
-add = "3.6.122.107"
+server_stats = server_stats.split(":")
+port = int(server_stats[1])
+add = socket.gethostbyname(server_stats[0])
 print(f"[bold green] You are connecting to : {add} [/bold green]")
 client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 function = sys.argv[1]

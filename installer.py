@@ -3,6 +3,8 @@ import os
 
 USER = os.getlogin()
 
+os.system("pip install -r requirements.txt")
+print("\n If you got any errors here , try running : pip3 install -r requirements.txt \n\n")
 
 target_install = f"/home/{USER}/UFT"
 
@@ -11,17 +13,17 @@ def delete_uft_dir():
         os.remove(f"{target_install}/{e}")
 
 if os.path.exists(target_install):
-    cmd = input("UFT have been already installed. Do You want to uninstall then enter `y` , if you want to make no change enter `n`  , if you want a update enter `t`. [y/n/t] ?")
+    cmd = input("UFT have been already installed. Do You want to uninstall then enter `y` , if you want to make no change enter `n`  , if you want a reinstall enter `t`. [y/n/t] ?")
     if cmd == "y":
         delete_uft_dir()
         os.rmdir(target_install)
-        os.remove("/usr/bin/UFT")
+        os.remove("/usr/bin/uft")
     elif cmd == "n":
         pass
     elif cmd == "t":
         delete_uft_dir()
         os.rmdir(target_install)
-        os.remove("/usr/bin/UFT")
+        os.remove("/usr/bin/uft")
 
         for e in os.listdir():
             try:
