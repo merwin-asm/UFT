@@ -80,9 +80,10 @@ Delete a file.
 user> uft replace (filename) (newfile) (password)
 ``` 
 Replace a file.
-<hr>
-## Testing
 
+<hr>
+
+## Testing
        
 <p align="center">
 <img src="https://cdn.discordapp.com/attachments/951417646191083551/1077843592057454653/Screenshot_from_2023-02-22_12-09-32.png">
@@ -97,6 +98,7 @@ Replace a file.
 </p>
 
 <hr>
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
