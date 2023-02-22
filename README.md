@@ -23,6 +23,7 @@ UFT (Universal File Transfer) is a CLI tool , which can  be used to upload files
 - E2EE
 - Nodes ( Set up your own nodes and support the UFT ) 
 - Decentralised 
+- File Scanning
 
 ## Installation :
 
