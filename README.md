@@ -35,7 +35,7 @@ cd UFT
 ```
 
 ```
-python3 installer.py # or python installer.py
+sudo python3 installer.py # or python installer.py
 ```
 
 ### On Other OS`s
