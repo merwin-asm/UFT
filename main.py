@@ -112,7 +112,7 @@ if server_stats == "DOWN":
     quit()
 # setting connection to server
 server_stats = server_stats.split(":")
-port = server_stats[1]
+port = int(server_stats[1])
 add = socket.gethostbyname(server_stats[0])
 print(f"[bold green] You are connecting to : {add} [/bold green]")
 client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
