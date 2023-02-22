@@ -1,10 +1,12 @@
-# UFT 2.0.0 
+# UFT 2.0.6
   
- - All features maynot be available as ~ VER 3 Is having some probs..
 
 UFT (Universal File Transfer) is a CLI tool , which can  be used to upload files to a public server and any one can download it...
+<p float="left">
+ <img src="https://komarev.com/ghpvc/?username=merwin-UFT&label=Project%20views&color=0e75b6&style=flat" alt="darkmash-org" /> 
+<img alt="" src="https://static.pepy.tech/personalized-badge/uft?period=total&units=international_system&left_color=blue&right_color=orange&left_text=Downloads">
 
-<p align="right"> <img src="https://komarev.com/ghpvc/?username=merwin-UFT&label=Project%20views&color=0e75b6&style=flat" alt="darkmash-org" /> </p>
+</p>
 
 ### Status
   - https://raw.githubusercontent.com/darkmash-org/UFT/main/status.txt
@@ -19,10 +21,17 @@ UFT (Universal File Transfer) is a CLI tool , which can  be used to upload files
 - SPV(secure password varification) 
 - File compression 
 - E2EE
-- Relays 
+- Nodes ( Set up your own nodes and support the UFT ) 
 - Decentralised 
+- File Scanning
 
 ## Installation :
+
+### Using Pip:
+
+```
+  pip install uft # or pip3 install uft (on linux)
+```
 
 ### Linux:
 
