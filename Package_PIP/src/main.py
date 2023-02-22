@@ -1,19 +1,39 @@
 ########################################################################
-# UFT - 2 - CLIENT - CLI - Pip Package
+# UFT - 2 - CLIENT - CLI - PIP - Package
 # Author : Merwin M.M
 ########################################################################
+
 
 import socket
 import os
 import sys
-import rsa
 import time
-import requests as r
 import hashlib
-from rich import print
-from rich.table import Table
-from rich.progress import track
 
+try:
+    import rsa
+    import requests as r
+    from rich import print
+    from rich.table import Table
+    from rich.progress import track
+except:
+    os.system("pip install rsa requests rich")
+try:
+    import rsa
+    import requests as r
+    from rich import print
+    from rich.table import Table
+    from rich.progress import track
+except:
+    os.system("pip3 install rsa requests rich")
+try:
+    import rsa
+    import requests as r
+    from rich import print
+    from rich.table import Table
+    from rich.progress import track
+except:
+    print("\n\n Error related to the install of the requirements... Try to install rsa , requests and rich.. Then Run..")
 
 
 table_commands = Table(title="Commands")
@@ -102,137 +122,138 @@ def hash_salt(password):
     return final.encode()
 
 def main():
-  recv_chunks = []
-  send_chunks = []
-  # Getting server info
-  server_stat_url = "https://raw.githubusercontent.com/darkmash-org/UFT/main/status.txt"
-  server_stats = r.get(server_stat_url).text
-  server_stats = server_stats.replace("\n","")
-  if server_stats == "DOWN":
-      print("[bold red] [-] The server is DOWN. Try later..[/bold red]")
-      quit()
-  # setting connection to server
-  server_stats = server_stats.split(":")
-  port = int(server_stats[1])
-  add = socket.gethostbyname(server_stats[0])
-  print(f"[bold green] You are connecting to : {add} [/bold green]")
-  client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-  function = sys.argv[1]
-  try:
-      client.connect((add, port))
-      print("[green] Got Connected To Server [/green]")
-      if function == "help":
-          print(table_commands)
-      elif function == "download":
-          a = time.time()
-          client.send("download".encode())
-          client.recv(1024).decode()
-          file_name = sys.argv[2]
-          new_name = sys.argv[3]
-          client.send(file_name.encode())
-          res = client.recv(1024).decode()
-          if res == "yes":
-              client.send(".".encode())
-              recv_large(new_name,client)
-              b = time.time()-a
-              print(f" [blue]Time Taken : {b}s[/blue]")
-          else:
-              print("[red] File Not Found...[/red]")
-      elif function == "upload":
-          file_name = sys.argv[2]
-          try:
-              a = os.path.exists(file_name)
-              if a:
-                  b = os.path.isfile(file_name)
-                  if b:
-                      uploadable = True
-                  else:
-                      uploadable = False
-              else:
-                  uploadable = False
-          except:
-              uploadable = False
-          if uploadable:
-              file_password = sys.argv[3]
-              file_password = hash_salt(file_password)
-              client.send("upload".encode())
-              client.recv(1024).decode()
-              client.send(file_name.encode())
-              res = client.recv(1024).decode()
-              if res == "__++":
-                  print("[red] File already exists , Try using other filename. [/red]")
-              else:
-                  client.send(file_password)
-                  client.recv(1024).decode()
 
-                  send_large(file_name,client)
+    recv_chunks = []
+    send_chunks = []
+    # Getting server info
+    server_stat_url = "https://raw.githubusercontent.com/darkmash-org/UFT/main/status.txt"
+    server_stats = r.get(server_stat_url).text
+    server_stats = server_stats.replace("\n","")
+    if server_stats == "DOWN":
+        print("[bold red] [-] The server is DOWN. Try later..[/bold red]")
+        quit()
+    # setting connection to server
+    server_stats = server_stats.split(":")
+    port = int(server_stats[1])
+    add = socket.gethostbyname(server_stats[0])
+    print(f"[bold green] You are connecting to : {add} [/bold green]")
+    client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+    function = sys.argv[1]
+    try:
+        client.connect((add, port))
+        print("[green] Got Connected To Server [/green]")
+        if function == "help":
+            print(table_commands)
+        elif function == "download":
+            a = time.time()
+            client.send("download".encode())
+            client.recv(1024).decode()
+            file_name = sys.argv[2]
+            new_name = sys.argv[3]
+            client.send(file_name.encode())
+            res = client.recv(1024).decode()
+            if res == "yes":
+                client.send(".".encode())
+                recv_large(new_name,client)
+                b = time.time()-a
+                print(f" [blue]Time Taken : {b}s[/blue]")
+            else:
+                print("[red] File Not Found...[/red]")
+        elif function == "upload":
+            file_name = sys.argv[2]
+            try:
+                a = os.path.exists(file_name)
+                if a:
+                    b = os.path.isfile(file_name)
+                    if b:
+                        uploadable = True
+                    else:
+                        uploadable = False
+                else:
+                    uploadable = False
+            except:
+                uploadable = False
+            if uploadable:
+                file_password = sys.argv[3]
+                file_password = hash_salt(file_password)
+                client.send("upload".encode())
+                client.recv(1024).decode()
+                client.send(file_name.encode())
+                res = client.recv(1024).decode()
+                if res == "__++":
+                    print("[red] File already exists , Try using other filename. [/red]")
+                else:
+                    client.send(file_password)
+                    client.recv(1024).decode()
 
-                  print("[green] UPLOADED[/green]")
-          else:
-              print("[red] File Error[/red]")
-      elif function == "delete":
-          client.send("delete".encode())
-          client.recv(1024).decode()
-          filename = sys.argv[2]
-          password = sys.argv[3]
-          password = hash_salt(password)
-          client.send(filename.encode())
-          client.recv(1024).decode()
-          client.send(password)
-          res = client.recv(1024).decode()
-          if res == "deleted":
-              print("[green] Deleted...[/green]")
-          else:
-              print("[red] Password Incorrect / File Error...[/red]")
-      elif function == "replace":
-          # remove
-          client.send("delete".encode())
-          client.recv(1024).decode()
-          filename = sys.argv[2]
-          password = sys.argv[4]
-          password = hash_salt(password)
-          client.send(filename.encode())
-          client.recv(1024).decode()
-          client.send(password)
-          res = client.recv(1024).decode()
-          if res == "deleted":
-              print("[green] Deleted...[/green]")
-              file_name = sys.argv[3]
-              try:
-                  a = os.path.exists(file_name)
-                  if a:
-                      b = os.path.isfile(file_name)
-                      if b:
-                          uploadable = True
-                      else:
-                          uploadable = False
-                  else:
-                      uploadable = False
-              except:
-                  uploadable = False
-              if uploadable:
-                  file_password = sys.argv[4]
-                  file_password = hash_salt(file_password)
-                  client.send("upload".encode())
-                  client.recv(1024).decode()
-                  client.send(file_name.encode())
-                  res = client.recv(1024).decode()
-                  if res == "__++":
-                      print("[red] File already exists , Try using other filename. [/red]")
-                  else:
-                      client.send(file_password)
-                      client.recv(1024).decode()
+                    send_large(file_name,client)
 
-                      send_large(file_name, client)
+                    print("[green] UPLOADED[/green]")
+            else:
+                print("[red] File Error[/red]")
+        elif function == "delete":
+            client.send("delete".encode())
+            client.recv(1024).decode()
+            filename = sys.argv[2]
+            password = sys.argv[3]
+            password = hash_salt(password)
+            client.send(filename.encode())
+            client.recv(1024).decode()
+            client.send(password)
+            res = client.recv(1024).decode()
+            if res == "deleted":
+                print("[green] Deleted...[/green]")
+            else:
+                print("[red] Password Incorrect / File Error...[/red]")
+        elif function == "replace":
+            # remove
+            client.send("delete".encode())
+            client.recv(1024).decode()
+            filename = sys.argv[2]
+            password = sys.argv[4]
+            password = hash_salt(password)
+            client.send(filename.encode())
+            client.recv(1024).decode()
+            client.send(password)
+            res = client.recv(1024).decode()
+            if res == "deleted":
+                print("[green] Deleted...[/green]")
+                file_name = sys.argv[3]
+                try:
+                    a = os.path.exists(file_name)
+                    if a:
+                        b = os.path.isfile(file_name)
+                        if b:
+                            uploadable = True
+                        else:
+                            uploadable = False
+                    else:
+                        uploadable = False
+                except:
+                    uploadable = False
+                if uploadable:
+                    file_password = sys.argv[4]
+                    file_password = hash_salt(file_password)
+                    client.send("upload".encode())
+                    client.recv(1024).decode()
+                    client.send(file_name.encode())
+                    res = client.recv(1024).decode()
+                    if res == "__++":
+                        print("[red] File already exists , Try using other filename. [/red]")
+                    else:
+                        client.send(file_password)
+                        client.recv(1024).decode()
 
-                      print("[green] UPLOADED[/green]")
-              else:
-                  print("[red] File Error[/red]")
-          else:
-              print("[red] Password Incorrect / File Error...[/red]")
-      else:
-          print("[red] Command Not Found...[/red]")
-      client.close()
-      print("[red] Disconnected[/red]")
-  except:
-      print("[red] Connection Error [/red]")
+                        send_large(file_name, client)
+
+                        print("[green] UPLOADED[/green]")
+                else:
+                    print("[red] File Error[/red]")
+            else:
+                print("[red] Password Incorrect / File Error...[/red]")
+        else:
+            print("[red] Command Not Found...[/red]")
+        client.close()
+        print("[red] Disconnected[/red]")
+    except:
+        print("[red] Connection Error [/red]")
