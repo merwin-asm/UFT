@@ -7,6 +7,7 @@ UFT (Universal File Transfer) is a CLI tool , which can  be used to upload files
 <img alt="" src="https://static.pepy.tech/personalized-badge/uft?period=total&units=international_system&left_color=blue&right_color=orange&left_text=Downloads">
 
 </p>
+
 ### Status
   - https://raw.githubusercontent.com/darkmash-org/UFT/main/status.txt
 
