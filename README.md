@@ -93,12 +93,17 @@ Replace a file.
 
 
         
+<p align="center">
 <img src="https://cdn.discordapp.com/attachments/951417646191083551/1077843592057454653/Screenshot_from_2023-02-22_12-09-32.png">
+  </p>
 <p align="center">
 <img width="45%" src="https://cdn.discordapp.com/attachments/951417646191083551/1077843622327758848/Screenshot_from_2023-02-22_12-10-48.png">
 <img  width="45%" src="https://cdn.discordapp.com/attachments/951417646191083551/1077843652967137320/Screenshot_from_2023-02-22_12-11-21.png">
 </p>
+<p align="center">
+
   <img src="https://cdn.discordapp.com/attachments/951417646191083551/1077843704838115348/Screenshot_from_2023-02-22_12-11-57.png">
+</p>
 
 <hr>
 <details>
