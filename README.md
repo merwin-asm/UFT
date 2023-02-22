@@ -93,7 +93,10 @@ Replace a file.
 
 
         
-        
+![Alt text](https://cdn.discordapp.com/attachments/951417646191083551/1077843592057454653/Screenshot_from_2023-02-22_12-09-32.png?raw=true "Options")
+![Alt text](https://cdn.discordapp.com/attachments/951417646191083551/1077843622327758848/Screenshot_from_2023-02-22_12-10-48.png?raw=true "Options")
+![Alt text](https://cdn.discordapp.com/attachments/951417646191083551/1077843652967137320/Screenshot_from_2023-02-22_12-11-21.png?raw=true "Options")
+![Alt text](https://cdn.discordapp.com/attachments/951417646191083551/1077843704838115348/Screenshot_from_2023-02-22_12-11-57.png?raw=true "Options")
 
 <hr>
 <details>
