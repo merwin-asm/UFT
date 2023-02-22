@@ -6,6 +6,8 @@ UFT (Universal File Transfer) is a CLI tool , which can  be used to upload files
 
 <p align="right"> <img src="https://komarev.com/ghpvc/?username=merwin-UFT&label=Project%20views&color=0e75b6&style=flat" alt="darkmash-org" /> </p>
 
+### Status
+
 ## Features
 
 - Encrytion(RSA).
