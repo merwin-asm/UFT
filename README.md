@@ -86,7 +86,7 @@ user> uft delete (filename) (password)
 Delete a file.
 
 ```
-user> uft replace (filename) (newfile) (password)
+user> uft replace (filename) (password)
 ``` 
 Replace a file.
 
