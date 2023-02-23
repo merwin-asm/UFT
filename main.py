@@ -24,7 +24,7 @@ table_commands.add_row("help", "Get info about the commands.", "1")
 table_commands.add_row("upload (filename) (password)", "Upload a file.", "2")
 table_commands.add_row("download (filename) (output) ", "Download a file.", "3")
 table_commands.add_row("delete (filename) (password) ","Delete a file which is present in the server.","4")
-table_commands.add_row("replace (filename) (newfile) (password)","Replace a existing file.","5")
+table_commands.add_row("replace (filename) (password)","Replace a existing file.","5")
 
 def read_public_key():
     with open("pub_key.txt", "rb") as f:
