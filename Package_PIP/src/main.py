@@ -44,7 +44,7 @@ table_commands.add_row("help", "Get info about the commands.", "1")
 table_commands.add_row("upload (filename) (password)", "Upload a file.", "2")
 table_commands.add_row("download (filename) (output) ", "Download a file.", "3")
 table_commands.add_row("delete (filename) (password) ","Delete a file which is present in the server.","4")
-table_commands.add_row("replace (filename) (newfile) (password)","Replace a existing file.","5")
+table_commands.add_row("replace (filename) (password)","Replace a existing file.","5")
 
 def read_public_key():
     with open("pub_key.txt", "rb") as f:
@@ -206,51 +206,10 @@ def main():
             else:
                 print("[red] Password Incorrect / File Error...[/red]")
         elif function == "replace":
-            # remove
-            client.send("delete".encode())
-            client.recv(1024).decode()
-            filename = sys.argv[2]
-            password = sys.argv[4]
-            password = hash_salt(password)
-            client.send(filename.encode())
-            client.recv(1024).decode()
-            client.send(password)
-            res = client.recv(1024).decode()
-            if res == "deleted":
-                print("[green] Deleted...[/green]")
-                file_name = sys.argv[3]
-                try:
-                    a = os.path.exists(file_name)
-                    if a:
-                        b = os.path.isfile(file_name)
-                        if b:
-                            uploadable = True
-                        else:
-                            uploadable = False
-                    else:
-                        uploadable = False
-                except:
-                    uploadable = False
-                if uploadable:
-                    file_password = sys.argv[4]
-                    file_password = hash_salt(file_password)
-                    client.send("upload".encode())
-                    client.recv(1024).decode()
-                    client.send(file_name.encode())
-                    res = client.recv(1024).decode()
-                    if res == "__++":
-                        print("[red] File already exists , Try using other filename. [/red]")
-                    else:
-                        client.send(file_password)
-                        client.recv(1024).decode()
-
-                        send_large(file_name, client)
-
-                        print("[green] UPLOADED[/green]")
-                else:
-                    print("[red] File Error[/red]")
-            else:
-                print("[red] Password Incorrect / File Error...[/red]")
+	        file_name = sys.argv[2]
+	        pwd = sys.argv[3] 
+	        os.system(f"uft delete {file_name} {pwd}")
+	        os.system(f"uft upload {file_name} {pwd}")     		
         else:
             print("[red] Command Not Found...[/red]")
         client.close()
