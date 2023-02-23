@@ -95,7 +95,7 @@ Replace a file.
 ## Testing
        
 <p align="center">
-<img src="https://cdn.discordapp.com/attachments/951417646191083551/1077843592057454653/Screenshot_from_2023-02-22_12-09-32.png">
+<img src="https://cdn.discordapp.com/attachments/951417646191083551/1078301073120444517/image.png">
   </p>
 <p align="center">
 <img width="45%" src="https://cdn.discordapp.com/attachments/951417646191083551/1077843622327758848/Screenshot_from_2023-02-22_12-10-48.png">
