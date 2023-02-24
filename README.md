@@ -1,4 +1,4 @@
-# UFT 2.0.7
+# UFT 2.0.8
   
 
 UFT (Universal File Transfer) is a CLI tool , which can  be used to upload files to a public server and any one can download it...
@@ -26,11 +26,11 @@ UFT (Universal File Transfer) is a CLI tool , which can  be used to upload files
 - File Scanning
 
 ## Installation :
-
+ - Note : We are contantly changing code and improving it (Beta Stage) , So if your client stoped working.... Pls reinstall and still broke contact us through Discord..
 ### Using Pip:
 
 ```
-  pip install uft # or pip3 install uft (on linux)
+  pip install uft==2.0.8 # or pip3 install uft==2.0.8 (on linux)
 ```
 
 ### Linux:
