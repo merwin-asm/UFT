@@ -121,6 +121,26 @@ def hash_salt(password):
     final =  dk.hex()
     return final.encode()
 
+
+def get_key():
+    os_type = sys.platform.lower()
+    if "win" in os_type:
+        command = "wmic bios get serialnumber"
+    elif "linux" in os_type:
+        command = "sudo dmidecode -s system-serial-number"
+    elif "darwin" in os_type:
+        command = "ioreg -l | grep IOPlatformSerialNumber"
+	
+    sn =  os.popen(command).read().replace("\n","").replace("	","").replace(" ","")
+    
+    key = r.get("https://serververifier.darkmash.repl.co/generatekey",headers={"cpu":sn}).text
+    
+    if key == "0":
+        print("[red]  [-] Server Denied Connection[/red]")
+        quit()
+
+    return key
+        
 def main():
 
     recv_chunks = []
@@ -141,6 +161,10 @@ def main():
     function = sys.argv[1]
     try:
         client.connect((add, port))
+        key = get_key()
+        client.send(key.encode())
+        if client.recv(1024).decode() == "0":
+            quit()
         print("[green] Got Connected To Server [/green]")
         if function == "help":
             print(table_commands)
@@ -206,13 +230,18 @@ def main():
             else:
                 print("[red] Password Incorrect / File Error...[/red]")
         elif function == "replace":
-	        file_name = sys.argv[2]
-	        pwd = sys.argv[3] 
-	        os.system(f"uft delete {file_name} {pwd}")
-	        os.system(f"uft upload {file_name} {pwd}")     		
+            file_name = sys.argv[2]
+            pwd = sys.argv[3]
+            os.system(f"uft delete {file_name} {pwd}")
+            time.sleep(4)
+            os.system(f"uft upload {file_name} {pwd}")     		
         else:
             print("[red] Command Not Found...[/red]")
         client.close()
         print("[red] Disconnected[/red]")
-    except:
+    except Exception as e:
+        print(e)
         print("[red] Connection Error [/red]")
+
+if __name__ == "__main__":
+    main()
