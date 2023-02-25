@@ -11,21 +11,14 @@ class MYPATH:
         pass
     def make_redirecting_bashfile(self,filename,target_pyfile="",content_edited=None,allow_args=False,max_num_args=0):
         if not allow_args:
-            default_command = f"""
-#!/bin/bash
-python3  {target_pyfile}
-        """
+            default_command = f"#!/bin/bash \npython3  {target_pyfile}"
         else:
             sub = ""
             for e in range(0,max_num_args):
                 sub += ' ${'
                 sub += f'args[{e}]'
                 sub += '} '
-            default_command = f"""
-#!/bin/bash
-args=("$@")
-python3  {target_pyfile} {sub}
-                    """
+            default_command = f"#!/bin/bash\nargs=('$@')\npython3  {target_pyfile} {sub}"
         try:
             file = open(filename, "x")
             if content_edited != None:
@@ -48,7 +41,7 @@ python3  {target_pyfile} {sub}
             os.system("cd /usr/bin")
             if exe:
                 print(True)
-                os.chmod(file_name,0o755)
+                os.chmod(target,0o755)
             if permissions != None:
                 os.system(f"sudo chmod {permissions} {file_name}") #SET Permissions
             return True

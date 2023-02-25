@@ -1,9 +1,9 @@
-# UFT 2.0.6
-  
+# UFT 2.0.8
+   
 
 UFT (Universal File Transfer) is a CLI tool , which can  be used to upload files to a public server and any one can download it...
 <p float="left">
- <img src="https://komarev.com/ghpvc/?username=merwin-UFT&label=Project%20views&color=0e75b6&style=flat" alt="darkmash-org" /> 
+ <img src="https://komarev.com/ghpvc/?username=merwin-UFT&label=Project%20Views-Github&color=0e75b6&style=flat" alt="darkmash-org" /> 
 <img alt="" src="https://static.pepy.tech/personalized-badge/uft?period=total&units=international_system&left_color=blue&right_color=orange&left_text=Downloads">
 
 </p>
@@ -26,11 +26,11 @@ UFT (Universal File Transfer) is a CLI tool , which can  be used to upload files
 - File Scanning
 
 ## Installation :
-
+ - Note : We are contantly changing code and improving it (Beta Stage) , So if your client stoped working.... Pls reinstall and still broke contact us through Discord..
 ### Using Pip:
 
 ```
-  pip install uft # or pip3 install uft (on linux)
+  pip install uft==2.0.8 # or pip3 install uft==2.0.8 (on linux)
 ```
 
 ### Linux:
@@ -86,7 +86,7 @@ user> uft delete (filename) (password)
 Delete a file.
 
 ```
-user> uft replace (filename) (newfile) (password)
+user> uft replace (filename) (password)
 ``` 
 Replace a file.
 
@@ -95,7 +95,7 @@ Replace a file.
 ## Testing
        
 <p align="center">
-<img src="https://cdn.discordapp.com/attachments/951417646191083551/1077843592057454653/Screenshot_from_2023-02-22_12-09-32.png">
+<img src="https://cdn.discordapp.com/attachments/951417646191083551/1078301073120444517/image.png">
   </p>
 <p align="center">
 <img width="45%" src="https://cdn.discordapp.com/attachments/951417646191083551/1077843622327758848/Screenshot_from_2023-02-22_12-10-48.png">
