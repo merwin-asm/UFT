@@ -1,4 +1,4 @@
-# UFT 2.0.8 [ SERVERS NOT UP LOOKING FOR PPL WHO WOULD PROVIDE A SERVER CONTACT cactochan#2004 - > discord]
+# UFT 2.0.8 [ SERVERS NOT UP, LOOKING FOR PPL WHO WOULD PROVIDE A SERVER CONTACT cactochan#2004 - > discord]
    
 
  - Note : The project have been moved to : https://github.com/darkmash-org/UFT
